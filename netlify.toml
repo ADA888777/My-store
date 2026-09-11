@@ -3,6 +3,11 @@
   publish = "artifacts/ada-platform/dist/public"
 
 [build.environment]
+  # Pin the Node version so future Netlify default bumps cannot break the build.
+  NODE_VERSION = "22"
   PORT = "5173"
   BASE_PATH = "/"
   NODE_ENV = "production"
+
+# Security and caching headers live in artifacts/ada-platform/public/_headers
+# so that they are copied into the publish directory by Vite.
