@@ -237,3 +237,69 @@ html {
   .gz-a4 { width: 52vw; height: 52vw; bottom: -20vw; left:  32vw; }
   .gz-fade { height: 160px; }
 }
+
+/* ============================================================
+   WHY-ADA CARD ICONS
+   Inline SVG icons (no icon font / external library).
+   Stroke color comes from the shared #adaStroke gradient
+   defined once in App.tsx.
+   ============================================================ */
+.why-ico {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 120% at 30% 0%, rgba(215, 124, 247, 0.28), transparent 60%),
+    linear-gradient(145deg, rgba(167, 85, 246, 0.22), rgba(79, 70, 229, 0.16));
+  border: 1px solid rgba(167, 85, 246, 0.38);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 14px 30px -16px rgba(124, 58, 237, 0.85);
+  margin-bottom: 1.1rem;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.68, 0.32, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.why-ico svg {
+  width: 28px;
+  height: 28px;
+  stroke: url(#adaStroke);
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+
+.why-card:hover .why-ico {
+  transform: translateY(-4px) scale(1.06);
+  border-color: rgba(215, 124, 247, 0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 20px 42px -16px rgba(167, 85, 246, 1);
+}
+
+@media (max-width: 640px) {
+  .why-ico {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+  }
+
+  .why-ico svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-ico,
+  .why-card:hover .why-ico {
+    transition: none;
+    transform: none;
+  }
+}
