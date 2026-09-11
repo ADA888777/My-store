@@ -27,7 +27,7 @@ const reasons = [
 
 export default function WhyAda() {
   return (
-    <section id="why-ada" className="py-24" style={{ background: "hsl(240,10%,4%)" }}>
+    <section id="why-ada" className="py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <div
