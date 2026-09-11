@@ -173,3 +173,67 @@ html {
 .fade-in-up {
   animation: fadeInUp 0.6s ease forwards;
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   نطاق الخلفية المتدرجة  (Hero  →  Why ADA)
+   الغلاف .gradient-zone يلفّ القسمين فقط، والطبقات بداخله absolute.
+   تنبيه: لا تضع transform على الغلاف ولا overflow:hidden على أب يقصّه.
+   ═══════════════════════════════════════════════════════════════ */
+.gradient-zone {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 45% at 78% 6%, #171029 0%, transparent 70%),
+    linear-gradient(160deg, #120a24 0%, #0e0820 55%, #0b0716 100%);
+}
+
+/* التوهّج الركني — أربع دوائر ضبابية أسفل اليسار */
+.gz-aura {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+.gz-a1 { width: 44vw; height: 44vw; bottom: -16vw; left: -10vw; background: #7c3aed; opacity: .40; }
+.gz-a2 { width: 36vw; height: 36vw; bottom:  -6vw; left:   6vw; background: #2dd4bf; opacity: .16; }
+.gz-a3 { width: 32vw; height: 32vw; bottom:   4vw; left:  18vw; background: #a855f7; opacity: .30; }
+.gz-a4 { width: 26vw; height: 26vw; bottom: -10vw; left:  30vw; background: #4f46e5; opacity: .26; }
+
+/* الحبيبات — بقعٌ بيضاء شفافة (.15 خفيفة · .23 متوازنة · .35 واضحة) */
+.gz-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .23;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+/* تلاشٍ سفلي يطابق خلفية باقي الصفحة فلا يظهر خط فاصل */
+.gz-fade {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 220px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, hsl(var(--background)));
+}
+
+/* المحتوى فوق كل الطبقات */
+.gradient-zone > .gz-content {
+  position: relative;
+  z-index: 3;
+}
+
+/* الجوال: توهّج أصغر وضبابية أخف حفاظًا على الأداء */
+@media (max-width: 640px) {
+  .gz-aura { filter: blur(60px); }
+  .gz-a1 { width: 92vw; height: 92vw; bottom: -34vw; left: -28vw; }
+  .gz-a2 { width: 74vw; height: 74vw; bottom: -14vw; left:  -6vw; }
+  .gz-a3 { width: 64vw; height: 64vw; bottom:   2vw; left:  12vw; }
+  .gz-a4 { width: 52vw; height: 52vw; bottom: -20vw; left:  32vw; }
+  .gz-fade { height: 160px; }
+}
