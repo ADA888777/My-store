@@ -152,6 +152,6 @@ pnpm --filter api-server dev
 
 <div align="center">
 
-صُنع بعناية لخدمة المحتوى العربي 🇸🇦
+صُنع بعناية لخدمة المحتوى العربي ✦
 
 </div>
