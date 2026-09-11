@@ -5,6 +5,11 @@
 [build.environment]
   # Pin the Node version so future Netlify default bumps cannot break the build.
   NODE_VERSION = "22"
+  # The dependency lists changed but pnpm-lock.yaml could not be regenerated in
+  # the browser. Netlify installs with --frozen-lockfile by default, which would
+  # fail. Run `pnpm install` locally, commit the refreshed pnpm-lock.yaml, then
+  # delete the line below to restore the stricter default.
+  PNPM_FLAGS = "--no-frozen-lockfile"
   PORT = "5173"
   BASE_PATH = "/"
   NODE_ENV = "production"
