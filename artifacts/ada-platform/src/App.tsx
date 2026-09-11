@@ -16,6 +16,16 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground" dir="rtl">
+      {/* تدرّج مشترك لأيقونات SVG — يُعرّف مرة واحدة فقط */}
+      <svg width="0" height="0" aria-hidden="true" style={{ position: "absolute" }}>
+        <defs>
+          <linearGradient id="adaStroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#D77CF7" />
+            <stop offset="55%" stopColor="#A755F6" />
+            <stop offset="100%" stopColor="#7C3AED" />
+          </linearGradient>
+        </defs>
+      </svg>
       <Navbar />
       <main>
         {/* نطاق الخلفية المتدرجة: من قسم البطل حتى نهاية «لماذا آدا» ثم يتلاشى */}
