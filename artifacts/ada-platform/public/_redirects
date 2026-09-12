@@ -1,1 +1,3 @@
-/*    /index.html   200
+# SPA fallback is configured per platform:
+# - Netlify: [[redirects]] block in netlify.toml
+# - Cloudflare Workers: not_found_handling in wrangler.jsonc
