@@ -1,3 +1,6 @@
-# SPA fallback is configured per platform:
-# - Netlify: [[redirects]] block in netlify.toml
-# - Cloudflare Workers: not_found_handling in wrangler.jsonc
+# Intentionally no catch-all rule here.
+# The site is a single page with in-page sections and no client-side router,
+# so the old rule /*  /index.html  200 made every unknown path answer 200
+# with the home page - soft 404s that pollute indexing.
+# Netlify now serves public/404.html for unknown paths automatically.
+# Do NOT re-add a catch-all unless real client-side routes are introduced.

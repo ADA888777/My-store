@@ -3,7 +3,6 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "hsl(240, 10%, 4%)" }}
     >
       {/* Ambient glow blobs */}
       <div
@@ -87,12 +86,6 @@ export default function Hero() {
           ))}
         </div>
       </div>
-
-      {/* Bottom fade */}
-      <div
-        className="absolute bottom-0 right-0 left-0 h-32 pointer-events-none"
-        style={{ background: "linear-gradient(to top, hsl(240,10%,4%), transparent)" }}
-      />
     </section>
   );
 }

@@ -3,12 +3,16 @@
   publish = "artifacts/ada-platform/dist/public"
 
 [build.environment]
+  # Pin the Node version so future Netlify default bumps cannot break the build.
+  NODE_VERSION = "22"
+  # The dependency lists changed but pnpm-lock.yaml could not be regenerated in
+  # the browser. Netlify installs with --frozen-lockfile by default, which would
+  # fail. Run `pnpm install` locally, commit the refreshed pnpm-lock.yaml, then
+  # delete the line below to restore the stricter default.
+  PNPM_FLAGS = "--no-frozen-lockfile"
   PORT = "5173"
   BASE_PATH = "/"
   NODE_ENV = "production"
 
-  # SPA fallback (Cloudflare uses wrangler.jsonc not_found_handling)
-  [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Security and caching headers live in artifacts/ada-platform/public/_headers
+# so that they are copied into the publish directory by Vite.
