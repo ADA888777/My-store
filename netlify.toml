@@ -6,3 +6,9 @@
   PORT = "5173"
   BASE_PATH = "/"
   NODE_ENV = "production"
+
+  # SPA fallback (Cloudflare uses wrangler.jsonc not_found_handling)
+  [[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
