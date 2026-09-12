@@ -1,1 +1,6 @@
-/*    /index.html   200
+# Intentionally no catch-all rule here.
+# The site is a single page with in-page sections and no client-side router,
+# so the old rule /*  /index.html  200 made every unknown path answer 200
+# with the home page - soft 404s that pollute indexing.
+# Netlify now serves public/404.html for unknown paths automatically.
+# Do NOT re-add a catch-all unless real client-side routes are introduced.
